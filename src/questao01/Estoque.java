@@ -9,7 +9,7 @@ static void main(){
     IO.println("            LOJA DEVFORCE");
     IO.println("=======================================");
 
-    List<Produto> estoque = new ArrayList<>();
+    Produto[] estoque = new Produto[5];
 
     IO.println("CADASTRO DE PRODUTO");
     for(int indice = 0; indice < 5; indice++){
@@ -26,14 +26,14 @@ static void main(){
         String decisao = entrada.nextLine();
         if (decisao.equalsIgnoreCase("n")){
             Produto novoProduto = new Produto(codigo, nome, preco);
-            estoque.add(novoProduto);
+            estoque[indice] = novoProduto;
         } else{
 
             IO.println("Quantidade em estoque: ");
             int quantidadeEmEstoque = entrada.nextInt();
             entrada.nextLine();
             Produto novoProduto = new Produto(codigo, nome, preco, quantidadeEmEstoque);
-            estoque.add(novoProduto);
+            estoque[indice] = novoProduto;
         }
     }
 

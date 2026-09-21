@@ -1,6 +1,5 @@
 package questoes.src.questao04.entities;
 
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
@@ -45,13 +44,4 @@ public class Fornecedor {
         return dataCadastro;
     }
 
-    @Override
-    public String toString() {
-        DateTimeFormatter formato01 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-        return "id: " + id +
-                "\nNome: " + nome +
-                "\nCNPJ: " + cnpj +
-                "\nData de Cadastro: " + dataCadastro.format(formato01) +
-                "\n-----------------------------------------------------------";
-    }
 }

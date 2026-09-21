@@ -2,6 +2,7 @@ package questoes.src.questao04;
 
 import questoes.src.questao04.entities.Fornecedor;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDateTime;
@@ -51,11 +52,17 @@ public class RegistrarFornecedor {
             fornecedores.add(fornecedor);
         }
 
+        DateTimeFormatter formato01 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         IO.println("===========================================================");
         IO.println("              FORNECEDORES CADASTRADOS");
         IO.println("===========================================================");
         for (Fornecedor fornecedorCadastrado : fornecedores){
-            IO.println(fornecedorCadastrado.toString());
+            IO.println("id: " + fornecedorCadastrado.getId() +
+            "\nNome: " + fornecedorCadastrado.getNome() +
+            "\nCNPJ: " + fornecedorCadastrado.getCnpj() +
+            "\nData de cadastro: " + fornecedorCadastrado.getDataCadastro().format(DateTimeFormatter.ofPattern(
+                    "dd/MM/yyyy HH:mm")) +
+            "\n-----------------------------------------------------------");
         }
 
         entrada.close();

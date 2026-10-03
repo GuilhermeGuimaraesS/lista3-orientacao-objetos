@@ -34,7 +34,7 @@ public class Main {
         } else {
             IO.println(departamentoBuscado.toString());
         }
-        
+
         entrada.close();
     }
 

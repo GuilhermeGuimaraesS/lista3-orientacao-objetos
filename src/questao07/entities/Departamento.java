@@ -11,7 +11,7 @@ public class Departamento {
     public Departamento(String nome, String codigo) {
         this.nome = nome;
         this.codigo = codigo;
-        this.funcionarios = null;
+        this.funcionarios = new ArrayList<>();
     }
 
     public String getNome() {
@@ -34,8 +34,12 @@ public class Departamento {
         return funcionarios;
     }
 
-    public void contratarFuncionario(Funcionario funcionario){
-        funcionarios.add(funcionario);
+    public void contratarFuncionario(Funcionario funcionarioNovo){
+        funcionarios.add(funcionarioNovo);
+    }
+
+    public void resgistrarFuncionarioAntigo(Funcionario funcionarioAntigo){
+        funcionarios.add(funcionarioAntigo);
     }
 
     public void listarFuncionarios(){
@@ -44,7 +48,34 @@ public class Departamento {
         }
     }
 
-    // Contratar, listar, calcular, func com maior salario, total de func admitidos
+    public double calcularFolhaSalarial(){
+        double folhaSalarial = 0;
+        for (Funcionario funcionario : funcionarios){
+            folhaSalarial += funcionario.getSalario();
+        }
+        return folhaSalarial;
+    }
+
+    public Funcionario funcionarioComMaiorSalario(){
+        Funcionario funcionarioComMaiorSalario = new Funcionario();
+        for (Funcionario funcionario : funcionarios){
+            if (funcionario.getSalario() > funcionarioComMaiorSalario.getSalario()){
+                funcionarioComMaiorSalario = funcionario;
+            }
+        }
+        return funcionarioComMaiorSalario;
+    }
+
+    public int totalDeFuncionariosAdmitidos(int anoDeAdmissao){
+        int totalDeFuncionarios = 0;
+        for (Funcionario funcionario : funcionarios){
+            if (funcionario.getDataAdmissao().getYear() == anoDeAdmissao){
+                totalDeFuncionarios++;
+            }
+        }
+        return totalDeFuncionarios;
+    }
+
     @Override
     public String toString() {
         return "Departamento{" +

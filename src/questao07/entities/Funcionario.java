@@ -23,6 +23,10 @@ public class Funcionario {
         this.dataAdmissao = dataAdmissao;
     }
 
+    public Funcionario(){
+
+    }
+
     public String getMatricula() {
         return matricula;
     }
@@ -47,4 +51,13 @@ public class Funcionario {
         return dataAdmissao;
     }
 
+    @Override
+    public String toString() {
+        return "Funcionario{" +
+                "matricula='" + matricula + '\'' +
+                ", nome='" + nome + '\'' +
+                ", salario=" + salario +
+                ", dataAdmissao=" + dataAdmissao +
+                '}';
+    }
 }

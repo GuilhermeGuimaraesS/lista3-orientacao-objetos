@@ -1,4 +1,4 @@
-package questoes.src.questao08;
+package questoes.src.questao08.utils;
 
 public class CalculadoraComercial {
 
